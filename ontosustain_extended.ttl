@@ -1,0 +1,332 @@
+@prefix : <http://example.org/ontosustain#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://example.org/ontosustain#> .
+
+[ rdf:type owl:Ontology
+ ] .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://example.org/ontosustain#consumes
+:consumes rdf:type owl:ObjectProperty ;
+          rdfs:domain :Asset ;
+          rdfs:range :Energy .
+
+
+###  http://example.org/ontosustain#discloses
+:discloses rdf:type owl:ObjectProperty ;
+           rdfs:domain :Reporting ;
+           rdfs:range :TopicalStandard .
+
+
+###  http://example.org/ontosustain#emits
+:emits rdf:type owl:ObjectProperty ;
+       rdfs:domain :Energy ;
+       rdfs:range :Emission .
+
+
+###  http://example.org/ontosustain#hasAspect
+:hasAspect rdf:type owl:ObjectProperty .
+
+
+###  http://example.org/ontosustain#hasCaValue
+:hasCaValue rdf:type owl:ObjectProperty ;
+            rdfs:domain :CalculationNode ;
+            rdfs:range :CalculatedValue .
+
+
+###  http://example.org/ontosustain#hasMeasurements
+:hasMeasurements rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Emission ,
+                             :Energy ;
+                 rdfs:range :Measurement .
+
+
+###  http://example.org/ontosustain#hasReValue
+:hasReValue rdf:type owl:ObjectProperty ;
+            rdfs:domain :CalculationNode ;
+            rdfs:range :ReportingValue .
+
+
+###  http://example.org/ontosustain#hasReport
+:hasReport rdf:type owl:ObjectProperty ;
+           rdfs:domain :Organization ;
+           rdfs:range :Reporting .
+
+
+###  http://example.org/ontosustain#isMappedTo
+:isMappedTo rdf:type owl:ObjectProperty ;
+            rdfs:domain :Organization ;
+            rdfs:range :CalculationNode .
+
+
+###  http://example.org/ontosustain#isValueOfCI
+:isValueOfCI rdf:type owl:ObjectProperty ;
+             rdfs:domain :CalculatedValue ;
+             rdfs:range :CoreIndicator .
+
+
+###  http://example.org/ontosustain#isValueOfSI
+:isValueOfSI rdf:type owl:ObjectProperty ;
+             rdfs:domain :ReportingValue ;
+             rdfs:range :StandardIndicator .
+
+
+###  http://example.org/ontosustain#owns
+:owns rdf:type owl:ObjectProperty ;
+      rdfs:domain :Organization ;
+      rdfs:range :Asset .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#contains
+<http://www.co-ode.org/ontologies/ont.owl#contains> rdf:type owl:ObjectProperty ;
+                                                    rdfs:domain :Strategy ;
+                                                    rdfs:range :Actions .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#hasAspectImpact
+<http://www.co-ode.org/ontologies/ont.owl#hasAspectImpact> rdf:type owl:ObjectProperty ;
+                                                           rdfs:subPropertyOf :hasAspect ;
+                                                           rdfs:domain :TopicalStandard ;
+                                                           rdfs:range :Impact .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#hasAspectOpportunity
+<http://www.co-ode.org/ontologies/ont.owl#hasAspectOpportunity> rdf:type owl:ObjectProperty ;
+                                                                rdfs:subPropertyOf :hasAspect ;
+                                                                rdfs:domain :TopicalStandard ;
+                                                                rdfs:range :Opportunities .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#hasAspectRisk
+<http://www.co-ode.org/ontologies/ont.owl#hasAspectRisk> rdf:type owl:ObjectProperty ;
+                                                         rdfs:subPropertyOf :hasAspect ;
+                                                         rdfs:domain :TopicalStandard ;
+                                                         rdfs:range :Risks .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#hasAspectStrategy
+<http://www.co-ode.org/ontologies/ont.owl#hasAspectStrategy> rdf:type owl:ObjectProperty ;
+                                                             rdfs:subPropertyOf :hasAspect ;
+                                                             rdfs:domain :TopicalStandard ;
+                                                             rdfs:range :Strategy .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#hasAspectTarget
+<http://www.co-ode.org/ontologies/ont.owl#hasAspectTarget> rdf:type owl:ObjectProperty ;
+                                                           rdfs:subPropertyOf :hasAspect ;
+                                                           rdfs:domain :TopicalStandard ;
+                                                           rdfs:range <http://www.co-ode.org/ontologies/ont.owl#Target> .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#hasUnit
+<http://www.co-ode.org/ontologies/ont.owl#hasUnit> rdf:type owl:ObjectProperty ;
+                                                   rdfs:subPropertyOf owl:topObjectProperty ;
+                                                   rdfs:domain :Measurement ;
+                                                   rdfs:range <http://www.co-ode.org/ontologies/ont.owl#Unit> .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#hasValue
+<http://www.co-ode.org/ontologies/ont.owl#hasValue> rdf:type owl:ObjectProperty ;
+                                                    rdfs:domain :Emission ;
+                                                    rdfs:range :Measurement .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://example.org/ontosustain#hasDescription
+:hasDescription rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Actions ,
+                            :AdoptedPolicies ,
+                            :Impact ,
+                            :Opportunities ,
+                            :Risks ,
+                            :Strategy ,
+                            <http://www.co-ode.org/ontologies/ont.owl#Target> ;
+                rdfs:range xsd:string .
+
+
+###  http://example.org/ontosustain#hasName
+:hasName rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Reporting ;
+         rdfs:range xsd:string .
+
+
+###  http://example.org/ontosustain#hasValue
+:hasValue rdf:type owl:DatatypeProperty ;
+          rdfs:domain :CalculatedValue ,
+                      :Measurement ,
+                      :ReportingValue ;
+          rdfs:range xsd:decimal .
+
+
+###  http://example.org/ontosustain#releaseDate
+:releaseDate rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Reporting ;
+             rdfs:range xsd:date .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://example.org/ontosustain#Actions
+:Actions rdf:type owl:Class .
+
+
+###  http://example.org/ontosustain#AdoptedPolicies
+:AdoptedPolicies rdf:type owl:Class .
+
+
+###  http://example.org/ontosustain#Asset
+:Asset rdf:type owl:Class .
+
+
+###  http://example.org/ontosustain#CalculatedValue
+:CalculatedValue rdf:type owl:Class .
+
+
+###  http://example.org/ontosustain#CalculationNode
+:CalculationNode rdf:type owl:Class .
+
+
+###  http://example.org/ontosustain#CoreIndicator
+:CoreIndicator rdf:type owl:Class .
+
+
+###  http://example.org/ontosustain#Emission
+:Emission rdf:type owl:Class ;
+          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasValue> ;
+                                owl:someValuesFrom :Measurement
+                              ] .
+
+
+###  http://example.org/ontosustain#Energy
+:Energy rdf:type owl:Class .
+
+
+###  http://example.org/ontosustain#Impact
+:Impact rdf:type owl:Class .
+
+
+###  http://example.org/ontosustain#IndicatorESRS
+:IndicatorESRS rdf:type owl:Class .
+
+
+###  http://example.org/ontosustain#IndicatorGRI
+:IndicatorGRI rdf:type owl:Class .
+
+
+###  http://example.org/ontosustain#Measurement
+:Measurement rdf:type owl:Class .
+
+
+###  http://example.org/ontosustain#Opportunities
+:Opportunities rdf:type owl:Class .
+
+
+###  http://example.org/ontosustain#Organization
+:Organization rdf:type owl:Class .
+
+
+###  http://example.org/ontosustain#Reporting
+:Reporting rdf:type owl:Class .
+
+
+###  http://example.org/ontosustain#ReportingValue
+:ReportingValue rdf:type owl:Class .
+
+
+###  http://example.org/ontosustain#Risks
+:Risks rdf:type owl:Class .
+
+
+###  http://example.org/ontosustain#StandardIndicator
+:StandardIndicator rdf:type owl:Class .
+
+
+###  http://example.org/ontosustain#Strategy
+:Strategy rdf:type owl:Class .
+
+
+###  http://example.org/ontosustain#TopicalStandard
+:TopicalStandard rdf:type owl:Class .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#CH4
+<http://www.co-ode.org/ontologies/ont.owl#CH4> rdf:type owl:Class ;
+                                               rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#GHG> .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#CO2
+<http://www.co-ode.org/ontologies/ont.owl#CO2> rdf:type owl:Class ;
+                                               rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#GHG> .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GHG
+<http://www.co-ode.org/ontologies/ont.owl#GHG> rdf:type owl:Class ;
+                                               rdfs:subClassOf :Emission .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Machine
+<http://www.co-ode.org/ontologies/ont.owl#Machine> rdf:type owl:Class ;
+                                                   rdfs:subClassOf :Asset .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#NOx
+<http://www.co-ode.org/ontologies/ont.owl#NOx> rdf:type owl:Class ;
+                                               rdfs:subClassOf :Emission .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#ODS
+<http://www.co-ode.org/ontologies/ont.owl#ODS> rdf:type owl:Class ;
+                                               rdfs:subClassOf :Emission .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Plant
+<http://www.co-ode.org/ontologies/ont.owl#Plant> rdf:type owl:Class ;
+                                                 rdfs:subClassOf :Asset .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#ReportedEmission
+<http://www.co-ode.org/ontologies/ont.owl#ReportedEmission> rdf:type owl:Class .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Target
+<http://www.co-ode.org/ontologies/ont.owl#Target> rdf:type owl:Class .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Unit
+<http://www.co-ode.org/ontologies/ont.owl#Unit> rdf:type owl:Class .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Vehicle
+<http://www.co-ode.org/ontologies/ont.owl#Vehicle> rdf:type owl:Class ;
+                                                   rdfs:subClassOf :Asset .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+<http://example.org/ontosustain> rdfs:label "Ontosustain Ontology" .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
