@@ -1,6 +1,6 @@
 # ontology_climate_credit_risks
 
-Data to the paper https://www.springerprofessional.de/en/an-ontology-for-climate-risks-in-a-credit-risk-management-framew/52254702 by Hendrik Weichel, Jürgen Angele, George Baryannis, Jörg Schäfer, Barış Sertkaya, Martin Simon, and Ann Smith.
+Data to the paper **An Ontology for Climate Risks in a Credit Risk Management Framework for Financial Institutions** (https://www.springerprofessional.de/en/an-ontology-for-climate-risks-in-a-credit-risk-management-framew/52254702) by Hendrik Weichel, Jürgen Angele, George Baryannis, Jörg Schäfer, Barış Sertkaya, Martin Simon, and Ann Smith.
 
 ---
 
